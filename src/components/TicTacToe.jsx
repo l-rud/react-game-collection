@@ -2,24 +2,30 @@ import { useState } from 'react';
 import './TicTacToe.css';
 
 const TicTacToe = () => {
+  // Initial state for the board, game status, whose turn it is (X or O)
   const [board, setBoard] = useState(Array(9).fill(null));
   const [isXNext, setIsXNext] = useState(true);
+  
   const winner = calculateWinner(board);
 
+  // Function to handle the click event on a square
   const handleClick = (index) => {
-    if (board[index] || winner) return;
-    const newBoard = board.slice();
+    if (board[index] || winner) return; // Ignore the click if the game is over or the square is already filled
+    const newBoard = board.slice(); // // Update the board with the current player's move
     newBoard[index] = isXNext ? 'X' : 'O';
     setBoard(newBoard);
     setIsXNext(!isXNext);
   };
 
+  // Function to render a single square
+  //Each square is clickable and displays the current player's mark (X or O)
   const renderSquare = (index) => (
     <button className="square" onClick={() => handleClick(index)}>
       {board[index]}
     </button>
   );
 
+  // Function to determine the status of the game (winner, draw, or next player)
   const getStatus = () => {
     if (winner) {
       return `Winner: ${winner}`;
@@ -51,6 +57,7 @@ const TicTacToe = () => {
 };
 
 const calculateWinner = (squares) => {
+  // Possible winning combinations:
   const lines = [
     [0, 1, 2],
     [3, 4, 5],
