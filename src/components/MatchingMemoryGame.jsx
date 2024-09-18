@@ -25,6 +25,12 @@ const MatchingMemoryGame = () => {
     const [cards, setCards] = useState([]);
     const [flippedIndices, setFlippedIndices] = useState([]);
     const [matchedIndices, setMatchedIndices] = useState([]);
+
+    useEffect(() => {
+        const shuffledCards = shuffleCards(cardImages);
+        setCards(shuffledCards);
+    }, []);
+    
     return (
         <div className="game">
             <h1>Matching Memory Game</h1>
