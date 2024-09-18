@@ -12,6 +12,12 @@ const TicTacToe = () => {
     setBoard(newBoard);
     setIsXNext(!isXNext);
   };
+  
+  const renderSquare = (index) => (
+    <button className="square" onClick={() => handleClick(index)}>
+      {board[index]}
+    </button>
+  );
 
   return (
     <div className="game">
