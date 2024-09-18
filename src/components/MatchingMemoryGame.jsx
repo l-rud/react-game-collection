@@ -30,7 +30,13 @@ const MatchingMemoryGame = () => {
         const shuffledCards = shuffleCards(cardImages);
         setCards(shuffledCards);
     }, []);
-    
+
+    const handleCardClick = (index) => {
+        if (flippedIndices.length < 2 && !flippedIndices.includes(index) && !matchedIndices.includes(index)) {
+            setFlippedIndices([...flippedIndices, index]);
+        }
+    };
+
     return (
         <div className="game">
             <h1>Matching Memory Game</h1>
