@@ -1,0 +1,37 @@
+.game {
+  text-align: center;
+}
+
+.board {
+  display: inline-block;
+  margin: 40px 40px;
+}
+
+.board-row {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.square {
+  width: 60px;
+  height: 60px;
+  background: #72EB3A;
+  border: 1px solid #365A08;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 60px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.square:hover {
+  background: #365A08;
+}
+
+.status {
+  margin-bottom: 10px;
+  font-size: 24px;
+  font-weight: 600;
+}
