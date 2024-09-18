@@ -22,8 +22,9 @@ const shuffleCards = (cards) => {
 };
 
 const MatchingMemoryGame = () => {
-
-
+    const [cards, setCards] = useState([]);
+    const [flippedIndices, setFlippedIndices] = useState([]);
+    const [matchedIndices, setMatchedIndices] = useState([]);
     return (
         <div className="game">
             <h1>Matching Memory Game</h1>
