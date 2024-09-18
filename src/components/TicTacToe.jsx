@@ -5,6 +5,14 @@ const TicTacToe = () => {
   const [isXNext, setIsXNext] = useState(true);
   const winner = calculateWinner(board);
 
+  const handleClick = (index) => {
+    if (board[index] || winner) return;
+    const newBoard = board.slice();
+    newBoard[index] = isXNext ? 'X' : 'O';
+    setBoard(newBoard);
+    setIsXNext(!isXNext);
+  };
+
   return (
     <div className="game">
       {/* <h1>Tic-Tac-Toe</h1> */}
