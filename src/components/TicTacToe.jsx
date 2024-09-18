@@ -12,12 +12,22 @@ const TicTacToe = () => {
     setBoard(newBoard);
     setIsXNext(!isXNext);
   };
-  
+
   const renderSquare = (index) => (
     <button className="square" onClick={() => handleClick(index)}>
       {board[index]}
     </button>
   );
+
+  const getStatus = () => {
+    if (winner) {
+      return `Winner: ${winner}`;
+    } else if (board.every(square => square)) {
+      return 'Draw!';
+    } else {
+      return `Next player: ${isXNext ? 'X' : 'O'}`;
+    }
+  };
 
   return (
     <div className="game">
