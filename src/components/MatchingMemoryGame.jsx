@@ -37,6 +37,18 @@ const MatchingMemoryGame = () => {
         }
     };
 
+    useEffect(() => {
+        if (flippedIndices.length === 2) {
+            const [firstIndex, secondIndex] = flippedIndices;
+            if (cards[firstIndex].id === cards[secondIndex].id) {
+                setMatchedIndices([...matchedIndices, firstIndex, secondIndex]);
+            }
+            setTimeout(() => {
+                setFlippedIndices([]);
+            }, 1000);
+        }
+    }, [flippedIndices, cards, matchedIndices]);
+
     return (
         <div className="game">
             <h1>Matching Memory Game</h1>
