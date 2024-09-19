@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import './MatchingMemoryGame.css';
 
 const cardImages = [
     { src: '/bear.png', id: 1 },
@@ -53,20 +54,20 @@ const MatchingMemoryGame = () => {
         <div className="game">
             {/* <h1>Matching Memory Game</h1> */}
             <div className="card-grid">
-            {cards.map((card, index) => (
-                <div
-                    key={index}
-                    className={`card ${flippedIndices.includes(index) || matchedIndices.includes(index) ? 'flipped' : ''}`}
-                    onClick={() => handleCardClick(index)}
-                >
-                    {flippedIndices.includes(index) || matchedIndices.includes(index) ? (
-                        <img src={card.src} alt={`Card ${card.id}`} />
-                    ) : (
-                        <div className="card-back">?</div>
-                    )}
-                </div>
-            ))}
-        </div>
+                {cards.map((card, index) => (
+                    <div
+                        key={index}
+                        className={`card ${flippedIndices.includes(index) || matchedIndices.includes(index) ? 'flipped' : ''}`}
+                        onClick={() => handleCardClick(index)}
+                    >
+                        {flippedIndices.includes(index) || matchedIndices.includes(index) ? (
+                            <img src={card.src} alt={`Card ${card.id}`} />
+                        ) : (
+                            <div className="card-back">?</div>
+                        )}
+                    </div>
+                ))}
+            </div>
         </div>
     );
 };
