@@ -29,6 +29,7 @@ const CandyCrush = () => {
     useEffect(() => {
         if (moves === 0) {
             alert('Game Over! Your final score is: ' + score);
+            resetGame(); // Reset the game when moves are over
         }
     }, [moves]);
 
@@ -118,6 +119,12 @@ const CandyCrush = () => {
         setBoard(newBoard);
     };
 
+    //Reset function
+    const resetGame = () => {
+        setScore(0);
+        setMoves(10);
+        createBoard();
+    };
 
     return (
         <div className="game">
@@ -139,6 +146,9 @@ const CandyCrush = () => {
                     </div>
                 ))}
             </div>
+            <br />
+            <button onClick={resetGame} className="reset-button">Reset Game</button>
+
         </div>
     );
 };
