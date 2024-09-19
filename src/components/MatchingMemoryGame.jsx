@@ -31,13 +31,20 @@ const MatchingMemoryGame = () => {
         const shuffledCards = shuffleCards(cardImages);
         setCards(shuffledCards);
     }, []);
+    
+    // When a player clicks on a card handleCardClick function takes an argument (index of the clicked card in the cards array) then checks conditions: 
+    // 1) that the player can only flip 2 cards at a time; 
+    // 2) whether the clicked card is already flipped; 
+    // 3)whether the clicked card has already been matched. 
+    // If all conditions are met, the setFlippedIndices is called with a new array that includes all the previously flipped indexes plus the new one. 
+    //React recognizes this as a state change and re-renders the component:
 
     const handleCardClick = (index) => {
         if (flippedIndices.length < 2 && !flippedIndices.includes(index) && !matchedIndices.includes(index)) {
             setFlippedIndices([...flippedIndices, index]);
         }
     };
-
+    //If 2 cards are flipped and match by id, useEffect adds the id to matchedIndices:
     useEffect(() => {
         if (flippedIndices.length === 2) {
             const [firstIndex, secondIndex] = flippedIndices;
@@ -46,7 +53,7 @@ const MatchingMemoryGame = () => {
             }
             setTimeout(() => {
                 setFlippedIndices([]);
-            }, 1000);
+            }, 1000); // allowing players to see the flipped cards for 1 second
         }
     }, [flippedIndices, cards, matchedIndices]);
 

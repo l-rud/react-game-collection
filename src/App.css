@@ -22,13 +22,13 @@ body {
 .header h1 {
   margin: 0;
   font-size: 24px;
-  color: #5D9D0B;  
+  color: #5D9D0B;
 }
 
 .top-menu {
   /* background-color: #8E43ED; 
   color: #F0EC8B;   */
-  background-color: #5D9D0B; 
+  background-color: #5D9D0B;
   /* background-color: #365A08;  */
   padding: 10px 0;
   text-align: center;
@@ -56,33 +56,30 @@ body {
 
 .top-menu ul li a:hover {
   /* background-color: #403541;    */
-  background-color: #72EB3A;   
+  background-color: #72EB3A;
 }
 
 .main-content {
   text-align: center;
-  margin: 20px auto; 
+  margin: 20px auto;
   max-width: 800px;
 }
 
 .content {
-  text-align: left;
-  border-radius: 8px;  
+  /* text-align: left; */
+  border-radius: 8px;
   padding: 20px;
-  border: none; 
   /* background-color: #403541; */
-  background-color: #5D9D0B; 
+  background-color: #5D9D0B;
   border: 1px solid #5D9D0B;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
 }
 
 .game {
   max-width: 800px;
   margin: 0 auto;
-  padding: 20px;
+  /* padding: 20px; */
   /* background-color:  #F0EC8B; */
-  background-color:  #72EB3A;
-  border: 1px solid #72EB3A; 
+  background-color: #72EB3A;
+  border: 1px solid #72EB3A;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
