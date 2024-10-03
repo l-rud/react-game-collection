@@ -6,6 +6,7 @@ const TicTacToe = () => {
   // Initial state for the board, game status, whose turn it is (X or O)
   const [board, setBoard] = useState(Array(9).fill(null));
   const [isXNext, setIsXNext] = useState(true);
+  const [confettiActive, setConfettiActive] = useState(false); //State to track if confetti should be displayed
   
   const winner = calculateWinner(board);
 
