@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './TicTacToe.css';
+import confetti from 'canvas-confetti';
 
 const TicTacToe = () => {
   // Initial state for the board, game status, whose turn it is (X or O)
