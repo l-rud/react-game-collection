@@ -6,21 +6,30 @@ const TicTacToe = () => {
   // Initial state for the board, game status, whose turn it is (X or O)
   const [board, setBoard] = useState(Array(9).fill(null));
   const [isXNext, setIsXNext] = useState(true);
-  const [confettiActive, setConfettiActive] = useState(false); //State to track if confetti should be displayed
-  
+  const [confettiActive, setConfettiActive] = useState(false); // State to track if confetti should be displayed
+
   const winner = calculateWinner(board);
 
   // Function to handle the click event on a square
   const handleClick = (index) => {
     if (board[index] || winner) return; // Ignore the click if the game is over or the square is already filled
-    const newBoard = board.slice(); // // Update the board with the current player's move
+    const newBoard = board.slice(); // Update the board with the current player's move
     newBoard[index] = isXNext ? 'X' : 'O';
     setBoard(newBoard);
     setIsXNext(!isXNext);
+
+    // Checking for a winner after the move
+    if (calculateWinner(newBoard)) {
+      triggerConfetti(); // Trigger confetti if there's a winner
+    }
+  };
+
+  const triggerConfetti = () => {
+    confetti(); // Calling the confetti function from the canvas-confetti library to trigger the confetti effect
   };
 
   // Function to render a single square
-  //Each square is clickable and displays the current player's mark (X or O)
+  // Each square is clickable and displays the current player's mark (X or O)
   const renderSquare = (index) => (
     <button className="square" onClick={() => handleClick(index)}>
       {board[index]}
