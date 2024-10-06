@@ -47,6 +47,12 @@ const TicTacToe = () => {
     }
   };
 
+  // Function to clear the board and reset the game state
+  const resetGame = () => {
+    setBoard(Array(9).fill(null));
+    setIsXNext(true);
+  };
+
   return (
     <div className="game">
       {/* <h1>Tic-Tac-Toe</h1> */}
@@ -63,6 +69,8 @@ const TicTacToe = () => {
           {renderSquare(6)} {renderSquare(7)} {renderSquare(8)}
         </div>
       </div>
+      <br />
+      <button onClick={resetGame} className="reset-button">Reset Game</button>
     </div>
   );
 };
